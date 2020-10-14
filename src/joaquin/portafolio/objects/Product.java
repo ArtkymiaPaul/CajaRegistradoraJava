@@ -1,6 +1,8 @@
 package joaquin.portafolio.objects;
 
-public abstract class Product {
+import joaquin.portafolio.test.Persona;
+
+public abstract class Product implements Cloneable {
     private String name;
     private int amount;
     private double price;
@@ -48,5 +50,9 @@ public abstract class Product {
     @Override
     public String toString(){
         return "name: " + this.name + ", price: " + this.price + ", amount: " + this.amount;
+    }
+
+    public Product clone() throws CloneNotSupportedException{
+        return (Product) super.clone();
     }
 }

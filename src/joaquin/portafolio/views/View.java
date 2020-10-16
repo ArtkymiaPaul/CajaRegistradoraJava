@@ -1,5 +1,8 @@
 package joaquin.portafolio.views;
 
+import joaquin.portafolio.objects.Product;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class View {
@@ -36,6 +39,10 @@ public class View {
 
     public static  void showInvalidOption(){
         System.out.println("Opcion no valida!!!");
+    }
+
+    public static  void showGetBack(String name){
+        System.out.println("Saliendo del modulo " + name + "....");
     }
 
     public static int getOption(){
@@ -99,5 +106,31 @@ public class View {
         System.out.println("\t\t\t2. Arroz");
         System.out.println("\t\t\t3. Carne");
         System.out.println("\t\t\t4. Volver");
+    }
+
+    public static void showItemsStock(Product[] products){
+        for(Product v: products){
+            System.out.println("\t\t* "+v.getName()+"\t| "+v.getAmount()+"\t\t| "+v.getPrice()+"\t\t\t| "+v.getAmount()*v.getPrice()+"\t\t*");
+        }
+    }
+
+    public static void showAnyKey(){
+        System.out.println("Digite cualquier numero para continuar...");
+    }
+
+    public static void showInvalidAmount(){
+        System.out.println("La cantidad no es valida...");
+    }
+
+    public static void showPurchases(List<Product> listado){
+        for (Product v:listado){
+            System.out.println("\t\t* "+v.getName()+"\t| "+v.getAmount()+"\t\t| "+v.getPrice()+"\t\t\t| "+v.getAmount()*v.getPrice()+"\t\t*");
+        }
+    }
+
+    public static void showSales(List<Product> listado){
+        for (Product v:listado){
+            System.out.println("\t\t* "+v.getName()+"\t| "+v.getAmount()+"\t\t| "+v.getPrice()+"\t\t\t| "+v.getAmount()*v.getPrice()*1.25+"\t\t*");
+        }
     }
 }
